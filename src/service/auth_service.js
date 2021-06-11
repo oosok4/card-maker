@@ -3,6 +3,7 @@
 // 서비스를 도맡아서 하는 서비스이다.
 
 import firebase from 'firebase';
+import firebaseApp from './firebase';
 
 class AuthService {
     login(providerName){

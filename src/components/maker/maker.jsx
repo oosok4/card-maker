@@ -47,7 +47,7 @@ const Maker = ({authService}) => {
 
     const onLogOut = () =>{
         authService.logout();
-    };http://localhost:3000/
+    };
 
     useEffect(()=>{
         authService.onAuthChange(user => {
@@ -58,11 +58,16 @@ const Maker = ({authService}) => {
         })
     })
 
+    const addCard = card => {
+        const updated = [...cards,card]; // 기존의 카드's를 불러온 후 새로 만든 카드를 추가시킨다.
+        setCards(updated);
+    }
+
     return (
         <section className = {styles.maker}>
             <Header onLogOut={onLogOut}/>
                 <div className={styles.container}>
-                    <Editor cards = {cards}/>
+                    <Editor cards = {cards} addCard = {addCard}/>
                     <Preview cards = {cards}/>
                 </div>
             <Footer/>

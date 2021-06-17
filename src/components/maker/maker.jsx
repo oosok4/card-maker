@@ -28,7 +28,7 @@ const Maker = ({ FileInput,authService, cardRepository }) => {
         return () => {
             stopSync();
         }
-    }, [userId]);
+    }, [userId,cardRepository]);
 
     // 로그인 관련 useEffect
     useEffect(() => {
@@ -39,7 +39,7 @@ const Maker = ({ FileInput,authService, cardRepository }) => {
                 history.push('/');
             }
         })
-    })
+    }, [authService, history]);
     // 카드 수정 및 추가
     const createOrUpdateCard = card => {
         //이렇게 해도되지만 cards가 다른 사용자의 의해서 이미 값이 변경 되었을 수 도 있다,
